@@ -95,6 +95,7 @@ do_compile() ->
     CompileFun = fun(AgentState) ->
                          State1 = element(?POS, AgentState),
                          {ok, State2} = rebar_core:do([compile], State1),
+                         code:add_pathsa(rebar_state:code_paths(State2, all_deps)),
                          setelement(?POS, AgentState, State2)
                  end,
     sys:replace_state(rebar_agent, CompileFun).
