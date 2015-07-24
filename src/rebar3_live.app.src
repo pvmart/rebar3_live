@@ -1,17 +1,11 @@
-{application, 'rebar3_live',
- [{description, "Rebar3 live plugin"},
-  {vsn, "0.1.2"},
-  {registered, []},
-  {applications,
-   [kernel,
-    stdlib,
-    enotify
-   ]},
-  {mod, {rebar3_live_app, []}},
-  {env,[]},
-  {modules, []},
-
-  {contributors, []},
-  {licenses, []},
-  {links, []}
- ]}.
+{application,rebar3_live,
+             [{description,"Rebar3 live plugin"},
+              {vsn,"0.1.2"},
+              {registered,[]},
+              {applications,[kernel,stdlib,enotify]},
+              {mod,{rebar3_live_app,[]}},
+              {env,[]},
+              {modules,[]},
+              {contributors,["Pavlo Martynenko"]},
+              {licenses,["MIT"]},
+              {links,[{"Github","https://github.com/pvmart/rebar3_live"}]}]}.
