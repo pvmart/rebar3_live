@@ -94,8 +94,17 @@ load(M) ->
 do_compile() ->
     CompileFun = fun(AgentState) ->
                          State1 = element(?POS, AgentState),
-                         {ok, State2} = rebar_core:do([compile], State1),
+                         {ok, State2} = safe_compile(State1),
                          code:add_pathsa(rebar_state:code_paths(State2, all_deps)),
                          setelement(?POS, AgentState, State2)
                  end,
     sys:replace_state(rebar_agent, CompileFun).
+
+-spec safe_compile(rebar_state:t()) -> {ok, rebar_state:t()}.
+safe_compile(State) ->
+    try rebar_core:do([compile], State) of
+        {ok, S} -> {ok, S};
+        _       -> {ok, State}
+    catch
+        rebar_abort -> {ok, State}
+    end.
