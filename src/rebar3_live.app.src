@@ -1,6 +1,6 @@
 {application,rebar3_live,
              [{description,"Rebar3 live plugin"},
-              {vsn,"0.1.2"},
+              {vsn,"0.1.3"},
               {registered,[]},
               {applications,[kernel,stdlib,enotify]},
               {mod,{rebar3_live_app,[]}},
