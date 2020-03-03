@@ -13,7 +13,9 @@ Use
 
 Add the plugin to your global rebar config ~/.config/rebar3/rebar.conf:
 
-    {plugins, [rebar3_live]}.
+```erlang
+{plugins, [rebar3_live]}.
+```
 
 Then just call your plugin directly in an existing application:
 
